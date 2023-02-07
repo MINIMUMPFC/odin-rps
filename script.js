@@ -1,3 +1,5 @@
+//Get Computers Choice for Rock, Paper or Scissors:
+
 const getComputerChoice = function() {
     let computerChoice;
     const numberPicked = Math.floor(Math.random() * 3);
