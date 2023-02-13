@@ -4,11 +4,11 @@ const getComputerChoice = function() {
     let computerChoice;
     const numberPicked = Math.floor(Math.random() * 3);
     if (numberPicked === 0) {
-        computerChoice = "Rock";
+        computerChoice = "rock";
     } else if (numberPicked === 1) {
-        computerChoice = "Paper";
+        computerChoice = "paper";
     } else {
-        computerChoice = "Scissors";
+        computerChoice = "scissors";
     };
     return computerChoice;
 };
@@ -31,6 +31,24 @@ function playRound(playerSelection, computerSelection) {
                 return `You win! ${playerSelection} beats ${computerSelection}`;
             }
             break;
+        case 'paper':
+            if (computerSelection == "scissors") {
+                return `You lose! ${playerSelection} loses to ${computerSelection}`;
+            } else if (computerSelection == "paper") {
+                return `Nobody wins! ${playerSelection} vs. ${computerSelection}`;
+            } else {
+                return `You win! ${playerSelection} beats ${computerSelection}`;
+            }
+            break;
+        case 'scissors':
+            if (computerSelection == "rock") {
+                return `You lose! ${playerSelection} loses to ${computerSelection}`;
+            } else if (computerSelection == "scissors") {
+                return `Nobody wins! ${playerSelection} vs. ${computerSelection}`;
+            } else {
+                return `You win! ${playerSelection} beats ${computerSelection}`;
+            }
+            break;  
     }
 }
 
@@ -48,7 +66,7 @@ const getPlayersChoice = function() {
 
 
 const playerSelection = getPlayersChoice();
-//const computerSelection = getComputerChoice();
-const computerSelection = "scissors";
+const computerSelection = getComputerChoice();
+
  
 console.log(playRound(playerSelection, computerSelection));
