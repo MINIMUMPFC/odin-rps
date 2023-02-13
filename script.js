@@ -14,12 +14,23 @@ const getComputerChoice = function() {
 };
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock" && (computerSelection !== "rock" && computerSelection !== "paper")) {
-        return `You win! ${playerSelection} beats ${computerSelection}`;
-    } else if (playerSelection == "rock" && (computerSelection == "rock")) {
-        return `Nobody wins! ${playerSelection} vs. ${computerSelection}`;
-    } else if (playerSelection == "rock" && (computerSelection == "paper")) {
-        return `You lose! ${playerSelection} loses to ${computerSelection}`;
+    //if (playerSelection == "rock" && (computerSelection !== "rock" && computerSelection !== "paper")) {
+    //    return `You win! ${playerSelection} beats ${computerSelection}`;
+    //} else if (playerSelection == "rock" && (computerSelection == "rock")) {
+    //    return `Nobody wins! ${playerSelection} vs. ${computerSelection}`;
+    //} else if (playerSelection == "rock" && (computerSelection == "paper")) {
+    //    return `You lose! ${playerSelection} loses to ${computerSelection}`;
+    //}
+    switch (playerSelection) {
+        case 'rock':
+            if (computerSelection == "paper") {
+                return `You lose! ${playerSelection} loses to ${computerSelection}`;
+            } else if (computerSelection == "rock") {
+                return `Nobody wins! ${playerSelection} vs. ${computerSelection}`;
+            } else {
+                return `You win! ${playerSelection} beats ${computerSelection}`;
+            }
+            break;
     }
 }
 
@@ -38,6 +49,6 @@ const getPlayersChoice = function() {
 
 const playerSelection = getPlayersChoice();
 //const computerSelection = getComputerChoice();
-const computerSelection = "rock";
+const computerSelection = "scissors";
  
 console.log(playRound(playerSelection, computerSelection));
